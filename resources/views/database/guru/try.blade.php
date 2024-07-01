@@ -37,7 +37,7 @@
         <select name="jenis_kelamin" id="jenis_kelamin" required>
             <option value="Laki-laki" {{ old('jenis_kelamin', $guru->jenis_kelamin) == 'Laki-laki' ? 'selected' : '' }}>Laki-laki</option>
             <option value="Perempuan" {{ old('jenis_kelamin', $guru->jenis_kelamin) == 'Perempuan' ? 'selected' : '' }}>Perempuan</option>
-        </select><br>
+        </select>
 
         <label for="agama">Agama:</label>
         <select name="agama" id="agama" required>

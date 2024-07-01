@@ -52,7 +52,7 @@
                     <div class="col-lg-6">
                         <div class="mb-3">
                             <label class="form-label">Tempat lahir</label>
-                            <input type="text" class="form-control" name="tempat_tanggal_lahir" placeholder="Jakarta" value="{{old('tempat_tanggal_lahir')}}">
+                            <input type="text" class="form-control" name="tempat_tanggal_lahir" placeholder="Jakarta" value="{{ old('tempat_tanggal_lahir', $guru->tempat_tanggal_lahir) }}" required>
                             @error('tempat_tanggal_lahir')
                                 <div class="text-danger mt-2">{{$message}}</div>
                             @enderror
@@ -61,7 +61,7 @@
                     <div class="col-lg-6">
                         <div class="mb-3">
                             <label class="form-label">Tanggal lahir</label>
-                            <input type="date" class="form-control" name="tanggal_lahir" value="{{old('tanggal_lahir')}}">
+                            <input type="date" class="form-control" value="{{ old('tanggal_lahir', $guru->tanggal_lahir->format('Y-m-d')) }}" required>
                             @error('tanggal_lahir')
                                 <div class="text-danger mt-2">{{$message}}</div>
                             @enderror
@@ -72,7 +72,7 @@
                     <div class="col-lg-6">
                         <div class="mb-3">
                             <label class="form-label">No. Handphone</label>
-                            <input type="number" class="form-control" name="no_hp" value="{{old('no_hp')}}">
+                            <input type="number" class="form-control" name="no_hp" value="{{ old('no_hp', $guru->no_hp) }}" required>
                             @error('no_hp')
                                 <div class="text-danger mt-2">{{$message}}</div>
                             @enderror
@@ -81,7 +81,7 @@
                     <div class="col-lg-6">
                         <div class="mb-3">
                             <label class="form-label">No. Rekening</label>
-                            <input type="number" class="form-control" name="no_rekening" value="{{old('no_rekening')}}">
+                            <input type="number" class="form-control" name="no_rekening" value="{{ old('no_rekening', $guru->no_rekening) }}" required>
                             @error('no_rekening')
                                 <div class="text-danger mt-2">{{$message}}</div>
                             @enderror
@@ -106,7 +106,7 @@
                     <div class="col-lg-6">
                         <div class="mb-3">
                             <label class="form-label">Mata Pelajaran</label>
-                            <select class="form-control" name="mapel" value="{{old('mapel')}}">
+                            <select class="form-control" name="mapel" value="{{ old('mapel', $guru->mapel) }}" required>
                                 <option value="matematika" selected>Matematika</option>
                                 <option value="bahasa inggris">Bahasa inggris</option>
                             </select>
@@ -120,7 +120,7 @@
                     <div class="col-lg-12">
                         <div class="mb-3">
                             <label class="form-label">Alamat</label>
-                            <textarea class="form-control" rows="4" name="alamat">{{old('alamat')}}</textarea>
+                            <textarea class="form-control" rows="4" name="alamat">={{ old('alamat', $guru->alamat) }}</textarea>
                             @error('alamat')
                                 <div class="text-danger mt-2">{{$message}}</div>
                             @enderror
@@ -169,7 +169,7 @@
                     <div class="col-lg-6">
                         <div class="mb-3">
                             <label class="form-label">Jurusan</label>
-                            <input type="text" class="form-control" name="nama_jurusan_pt" placeholder="" value="{{old('nama_jurusan_pt')}}">
+                            <input type="text" class="form-control" name="nama_jurusan_pt" placeholder="" value="{{ old('nama_jurusan_pt', $guru->nama_jurusan_pt) }}" required>
                             @error('nama_jurusan_pt')
                                 <div class="text-danger mt-2">{{$message}}</div>
                             @enderror
@@ -180,9 +180,9 @@
                     <div class="col-lg-4">
                         <div class="mb-3">
                             <label class="form-label">Status Kepegawaian</label>
-                            <select class="form-control" name="status_kepegawaian" value="{{old('status_kepegawaian')}}">
-                                <option value="aktif" selected>Aktif</option>
-                                <option value="tidak aktif">Tidak Aktif</option>
+                            <select class="form-control" name="status_kepegawaian" >
+                                <option value="Aktif" {{ old('status_kepegawaian', $guru->status_kepegawaian) == 'Aktif' ? 'selected' : '' }}>Aktif</option>
+                                <option value="Tidak aktif" {{ old('status_kepegawaian', $guru->status_kepegawaian) == 'Tidak aktif' ? 'selected' : '' }}>Tidak aktif</option>
                             </select>
                             @error('status_kepegawaian')
                                 <div class="text-danger mt-2">{{$message}}</div>
@@ -192,7 +192,7 @@
                     <div class="col-lg-4">
                         <div class="mb-3">
                             <label class="form-label">Tanggal Masuk</label>
-                            <input class="form-control" type="date" name="tanggal_masuk" id="" value="{{old('tanggal_masuk')}}">
+                            <input class="form-control" type="date" name="tanggal_masuk" id="" value="{{ old('tanggal_masuk', $guru->tanggal_masuk->format('Y-m-d')) }}" required>
                             @error('tanggal_masuk')
                                 <div class="text-danger mt-2">{{$message}}</div>
                             @enderror
@@ -201,7 +201,7 @@
                     <div class="col-lg-4">
                         <div class="mb-3">
                             <label class="form-label">Tanggal Keluar</label>
-                            <input class="form-control" type="date" name="tanggal_keluar" id="" value="{{old('tanggal_keluar')}}">
+                            <input class="form-control" type="date" name="tanggal_keluar" id="" value="{{ old('tanggal_keluar', $guru->tanggal_keluar->format('Y-m-d')) }}" required>
                         </div>
                         @error('tanggal_keluar')
                                 <div class="text-danger mt-2">{{$message}}</div>
