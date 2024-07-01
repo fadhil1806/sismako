@@ -20,7 +20,11 @@ class Guru extends Model
         'no_hp', 'mapel', 'gelar', 'email', 'no_rekening', 'status_kepegawaian', 'foto',
         'tanggal_masuk', 'tanggal_keluar', 'foto_ktp', 'foto_surat_keterangan_mengajar'
     ];
-
+    protected $casts = [
+        'tanggal_lahir' => 'date',
+        'tanggal_masuk' => 'date',
+        'tanggal_keluar' => 'date',
+    ];
     public function ijazah()
     {
         return $this->hasMany(IjazahGuru::class, 'id_guru');

@@ -202,9 +202,10 @@ class GuruController extends Controller
         return redirect()->route('guru.index')->with('success', 'Data berhasil dihapus');
     }
 
-    public function edit($id) {
+    public function edit($id)
+    {
         $guru = Guru::findOrFail($id);
-        return view('guru.edit', compact('guru'));
+        return view('database.guru.edit', compact('guru'));
     }
 
     public function update(Request $request, $id) {
