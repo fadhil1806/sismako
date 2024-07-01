@@ -2,8 +2,11 @@
 
     @include('inc.form')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <div class="py-12">
-        <div class="table-responsive">
+    <div class="container mt-3">
+        <a href="{{route('guru.create')}}" class="btn btn-primary">Tambah data Guru</a>
+    </div>
+    <div class="mt-4">
+        <div class="table-responsive" style="margin-right: 20px; margin-left: 20px">
             <table class="table card-table table-vcenter text-nowrap datatable">
                 <thead>
                     <tr>
@@ -38,7 +41,7 @@
                             <td>
                                 <div class="btn-list flex-nowrap">
                                     <a class="btn" href="#">Export</a>
-                                    <a class="btn" href="#">Edit</a>
+                                    <a class="btn" href="{{route('guru.edit', $data->id)}}">Edit</a>
                                     {{-- <a class="btn btn-danger" href=""><i class="bi bi-trash3"></i></a> --}}
                                     {{-- <a class="btn" >Edit</a> --}}
                                     <form action="{{ route('guru.destory', $data->id) }}" method="POST">
