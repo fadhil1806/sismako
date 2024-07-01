@@ -26,26 +26,26 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $data->nama }}</td>
-                            <td>{{ $data->nik }}</td>
-                            <td>{{ $data->gtk }}</td>
-                            <td>{{ $data->nuptk }}</td>
+                            <td>{{ $data->no_nik }}</td>
+                            <td>{{ $data->no_gtk }}</td>
+                            <td>{{ $data->no_nuptk }}</td>
                             <td>{{ $data->jenis_kelamin }}</td>
                             <td>{{ $data->no_hp }}</td>
                             <td>{{ $data->mapel }}</td>
                             <td>{{ $data->email }}</td>
-                            <td>{{ $data->rekening }}</td>
+                            <td>{{ $data->no_rekening }}</td>
                             <td><span class="badge bg-success me-1"></span>{{ $data->status_kepegawaian }}</td>
                             <td>
                                 <div class="btn-list flex-nowrap">
                                     <a class="btn" href="#">Export</a>
                                     <a class="btn" href="#">Edit</a>
-                                    <a class="btn btn-danger" href=""><i class="bi bi-trash3"></i></a>
+                                    {{-- <a class="btn btn-danger" href=""><i class="bi bi-trash3"></i></a> --}}
                                     {{-- <a class="btn" >Edit</a> --}}
-                                    {{-- <form action="{{ route('guru.destroy', $data->id) }}" method="POST">
+                                    <form action="{{ route('guru.destory', $data->id) }}" method="POST">
                                         @csrf
                                         @method('delete')
-                                        <button id="btn-delete" class="btn" onclick="return confirm('Are you sure?')">Delete</button>
-                                    </form> --}}
+                                        <button id="btn-delete" class="btn" onclick="return confirm('Are you sure?')"><i class="bi bi-trash3"></i></button>
+                                    </form>
                                 </div>
                             </td>
                         </tr>

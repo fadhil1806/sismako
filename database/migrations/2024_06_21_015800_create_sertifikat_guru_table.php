@@ -14,8 +14,7 @@ return new class extends Migration
         Schema::create('sertifikat_guru', function (Blueprint $table) {
             $table->unsignedBigInteger('id_guru');
             $table->foreign('id_guru')->references('id')->on('guru')->cascadeOnDelete();
-            $table->string('nama_file', 30)->unique();
-            $table->timestamps();
+            $table->string('nama_file', 50);
         });
     }
 

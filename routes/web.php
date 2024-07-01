@@ -10,17 +10,17 @@ Route::view('dashboard', 'dashboard')
     ->name('dashboard');
 
 
-
 Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
-
-
-require __DIR__.'/auth.php';
 
 Route::controller(GuruController::class)->group(function() {
     Route::get('/guru', 'index')->name('guru.index');
     Route::get('/guru/create', 'create')->name('guru.create');
     Route::post('/guru/create/data', 'store')->name('guru.store');
-    // Route::get('/guru/add', 'add')->name('guru.add');
+    Route::delete('/guru/delete/{id}', 'destroy')->name('guru.destory');
 });
+    
+
+require __DIR__.'/auth.php';
+

@@ -210,34 +210,34 @@
                 <div class="row">
                     <div class="col-lg-6 mb-3">
                         <label class="form-label fw-bold">SMP</label>
-                        <input type="file" class="form-control" name="ijazah_smp" accept=".png">
+                        <input type="file" class="form-control" name="ijazah_smp" accept=".png" >
                         @error('ijazah_smp')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="col-lg-6 mb-3">
                         <label class="form-label fw-bold">SMA</label>
-                        <input type="file" class="form-control" name="ijazah_sma" accept=".png">
+                        <input type="file" class="form-control" name="ijazah_sma" accept=".png" >
                         @error('ijazah_sma')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="col-lg-6 mb-3">
-                        <label class="form-label fw-bold">S1</label>
+                        <label class="form-label fw-bold">S1 (opsional)</label>
                         <input type="file" class="form-control" name="ijazah_s1" accept=".png">
                         @error('ijazah_s1')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="col-lg-6 mb-3">
-                        <label class="form-label fw-bold">S2</label>
+                        <label class="form-label fw-bold">S2 (opsional)</label>
                         <input type="file" class="form-control" name="ijazah_s2" accept=".png">
                         @error('ijazah_s2')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="col-lg-12 mb-3">
-                        <label class="form-label fw-bold">S3</label>
+                        <label class="form-label fw-bold">S3 (opsional)</label>
                         <input type="file" class="form-control" name="ijazah_s3" accept=".png">
                     </div>
                 </div>
@@ -257,16 +257,10 @@
                         <label class="form-label fw-bold">FOTO Surat Keterangan Mengajar</label>
                         <input type="file" class="form-control" name="foto_surat_keterangan_mengajar" accept="">
                     </div>
-                </div>
-            </div>
-
-            <div id="step-5" class="d-none">
-                <h1 class="text-center mb-6">Foto Sertifikat</h1>
-                <div class="row" id="sertifikatContainer">
-                    <!-- Input sertifikat akan ditambahkan di sini -->
-                </div>
-                <div class="text-center">
-                    <button type="button" class="btn btn-custom" id="addSertifikatButton">Add Sertifikat</button>
+                    <div class="col-lg-12 mb-3">
+                        <label class="form-label fw-bold" for="">Foto sertifikat (opsional)</label>
+                        <input type="file" class="form-control" name="foto_sertifikat[]" multiple accept=".png, .jpeg, .jpg">
+                    </div>
                 </div>
             </div>
 
@@ -280,7 +274,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            const steps = ['step-1', 'step-2', 'step-3', 'step-4', 'step-5'];
+            const steps = ['step-1', 'step-2', 'step-3', 'step-4'];
             let currentStep = 0;
 
             const nextButton = document.getElementById('nextButton');
@@ -317,7 +311,7 @@
             showStep(currentStep);
         });
     </script>
-    <script>
+    {{-- <script>
         document.addEventListener('DOMContentLoaded', function() {
             const sertifikatContainer = document.getElementById('sertifikatContainer');
             const addSertifikatButton = document.getElementById('addSertifikatButton');
@@ -334,5 +328,5 @@
                 sertifikatContainer.appendChild(newSertifikat);
             });
         });
-    </script>
+    </script> --}}
 </x-app-layout>
