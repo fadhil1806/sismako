@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GuruController;
+use App\Http\Controllers\TendikController;
 
 Route::view('/', 'welcome');
 
@@ -21,6 +22,11 @@ Route::controller(GuruController::class)->group(function() {
     Route::post('/guru/update/{id}', [GuruController::class, 'update'])->name('guru.update');
     Route::post('/guru/create/data', 'store')->name('guru.store');
     Route::delete('/guru/delete/{id}', 'destroy')->name('guru.destory');
+});
+
+Route::controller(TendikController::class)->group(function () {
+    Route::get('/tendik/create', 'create')->name('tendik.create');
+    Route::post('/tendik/create/data', 'store')->name('tendik.store');
 });
 
 

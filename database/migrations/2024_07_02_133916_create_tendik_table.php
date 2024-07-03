@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('guru', function (Blueprint $table) {
+        Schema::create('tendik', function (Blueprint $table) {
             $table->id();
             $table->string('nama', 40);
             $table->string('no_nik', 20)->unique();
@@ -21,15 +21,12 @@ return new class extends Migration
             $table->dateTime('tanggal_lahir');
             $table->enum('jenis_kelamin', ['Laki-laki', 'Perempuan']);
             $table->enum('agama', ['Islam', 'Kristen', 'Buddha', 'Khonghucu', 'Hindu', 'Katolik']);
-            $table->string('nama_lulusan_pt', 30);
-            $table->string('nama_jurusan_pt', 30);
             $table->text('alamat');
-            $table->string('no_hp', 20);
-            $table->string('mapel', 20);
-            $table->string('gelar', 20);
-            $table->string('email', 30)->unique();
-            $table->string('no_rekening', 20)->unique();
             $table->enum('status_kepegawaian', ['Aktif', 'Tidak aktif']);
+            $table->string('no_rekening', 20)->unique();
+            $table->string('posisi_jabatan', 40);
+            $table->string('email', 30)->unique();
+            $table->enum('pendidikan_terakhir', ['Smp', 'Sma', 'S1', 'S2', 'S3']);
             $table->dateTime('tanggal_masuk');
             $table->dateTime('tanggal_keluar');
             $table->string('foto');
@@ -44,7 +41,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('guru');
+        Schema::dropIfExists('tendik');
     }
 };
-

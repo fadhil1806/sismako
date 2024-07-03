@@ -24,7 +24,7 @@ class GuruController extends Controller
 
     public function fileSetup($file, $nama, $prefix, $dir, $path = '') {
         $imageFileName = $prefix . str_replace(' ', '_', $nama) . '.' . $file->getClientOriginalExtension();
-        $fullPath = public_path('img/' . $dir . $path);
+        $fullPath = public_path('img/guru/' . $dir . $path);
 
         // Pastikan direktori tujuan ada
         if (!file_exists($fullPath)) {
@@ -92,7 +92,7 @@ class GuruController extends Controller
 
         $nama = $request->nama;
         $namaDir = str_replace(' ', '_', $nama);
-        $baseDir = public_path('img/' . $namaDir);
+        $baseDir = public_path('img/guru/' . $namaDir);
 
         if (!file_exists($baseDir)) {
             mkdir($baseDir, 0777, true);
@@ -189,7 +189,7 @@ class GuruController extends Controller
         $namaDir = str_replace(' ', '_', $data->nama);
 
         // Path direktori
-        $baseDir = public_path('img/' . $namaDir);
+        $baseDir = public_path('img/guru/' . $namaDir);
 
         // Hapus direktori dan semua isinya
         if (File::exists($baseDir)) {
