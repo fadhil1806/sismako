@@ -31,7 +31,7 @@ return new class extends Migration
             $table->string('no_rekening', 20)->unique();
             $table->enum('status_kepegawaian', ['Aktif', 'Tidak aktif']);
             $table->dateTime('tanggal_masuk');
-            $table->dateTime('tanggal_keluar');
+            $table->dateTime('tanggal_keluar')->nullable();
             $table->string('foto');
             $table->string('foto_ktp');
             $table->string('foto_surat_keterangan_mengajar');

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreign('id_tendik')->references('id')->on('tendik')->cascadeOnDelete();
             $table->enum('jenis_ijazah', ['SMP', 'SMA', 'S1', 'S2', 'S3']);
             $table->string('nama_file', 50);
-            // $table->timestamps();
+            $table->timestamps();
         });
     }
 

@@ -22,13 +22,14 @@ return new class extends Migration
             $table->enum('jenis_kelamin', ['Laki-laki', 'Perempuan']);
             $table->enum('agama', ['Islam', 'Kristen', 'Buddha', 'Khonghucu', 'Hindu', 'Katolik']);
             $table->text('alamat');
-            $table->enum('status_kepegawaian', ['Aktif', 'Tidak aktif']);
+            $table->string('no_hp', 20)->nullable();
             $table->string('no_rekening', 20)->unique();
-            $table->string('posisi_jabatan', 40);
             $table->string('email', 30)->unique();
             $table->enum('pendidikan_terakhir', ['Smp', 'Sma', 'S1', 'S2', 'S3']);
+            $table->string('posisi', 40)->default('Default position');
+            $table->enum('status_kepegawaian', ['Aktif', 'Tidak aktif']);
             $table->dateTime('tanggal_masuk');
-            $table->dateTime('tanggal_keluar');
+            $table->dateTime('tanggal_keluar')->nullable();
             $table->string('foto');
             $table->string('foto_ktp');
             $table->string('foto_surat_keterangan_mengajar');

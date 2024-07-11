@@ -15,6 +15,7 @@ return new class extends Migration
             $table->unsignedBigInteger('id_guru');
             $table->foreign('id_guru')->references('id')->on('guru')->cascadeOnDelete();
             $table->string('nama_file', 50);
+            $table->timestamps();
         });
     }
 

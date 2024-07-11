@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DataPrestasiController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\TendikController;
@@ -25,10 +26,21 @@ Route::controller(GuruController::class)->group(function() {
 });
 
 Route::controller(TendikController::class)->group(function () {
+    Route::get('/tendik', 'index')->name('tendik.index');
     Route::get('/tendik/create', 'create')->name('tendik.create');
+    Route::get('/tendik/edit/{id}', 'edit')->name('tendik.edit');
     Route::post('/tendik/create/data', 'store')->name('tendik.store');
+    Route::delete('/tendik/delete/{id}', 'destroy')->name('tendik.destory');
+    Route::post('/tendik/update/{id}', [TendikController::class, 'update'])->name('tendik.update');
+
 });
 
+Route::controller(DataPrestasiController::class)->group(function() {
+    Route::get('/dataPrestasi', 'index')->name('prestasi.index');
+    Route::get('/prestasi/create', 'create')->name('prestasi.create');
+    Route::post('/prestasi/create/data', 'store')->name('prestasi.store');
+    Route::get('/prestasi/edit/{id}', 'edit')->name('prestasi.edit');
+});
 
 require __DIR__.'/auth.php';
 

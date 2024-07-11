@@ -42,8 +42,6 @@
                                 <div class="btn-list flex-nowrap">
                                     <a class="btn" href="#">Export</a>
                                     <a class="btn" href="{{route('guru.edit', $data->id)}}">Edit</a>
-                                    {{-- <a class="btn btn-danger" href=""><i class="bi bi-trash3"></i></a> --}}
-                                    {{-- <a class="btn" >Edit</a> --}}
                                     <form action="{{ route('guru.destory', $data->id) }}" method="POST">
                                         @csrf
                                         @method('delete')
